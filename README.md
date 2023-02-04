@@ -4,7 +4,7 @@
 # 📗 Table of Contents
 
 - [� Table of Contents](#-table-of-contents)
-- [📖 Math Magicians ](#-math_magic_react-)
+- [📖 Bookstore React App ](#-Bookstore-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -242,7 +242,7 @@ I would like to thank...
 
 - **[what is this project about?]**
 
-  - Calculator App is a web app that allows the user to make mathematcal calculations.
+  - Bookstore React App is a web app that allows the user to store books.
 
 - **[do I need to use npm ?]**
 
