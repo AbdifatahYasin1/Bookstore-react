@@ -1,11 +1,18 @@
-const Status = 'bookstore/categories/Status';
-const initialState = { categories: [] };
-const categoriesReducer = (state = initialState, action) => {
+const status = 'bookstore/categories/Status';
+
+const initialState = {
+  status: '',
+};
+
+export function checkStatus() {
+  return { type: status };
+}
+
+export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case Status:
-      return { ...state, categories: 'Under construction' };
+    case status:
+      return { ...state, status: 'Under construction' };
     default:
       return state;
   }
-};
-export default categoriesReducer;
+}

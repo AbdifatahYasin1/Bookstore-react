@@ -1,12 +1,35 @@
 import React from 'react';
-import Bookitems from './Bookitems';
-import Form from './Form';
+import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { removeBook } from '../redux/books/books';
 
-const Books = () => (
-  <div>
-    <Bookitems title="No one knows" author="Jimmy" />
-    <Form />
-  </div>
-);
+const Book = ({ title, author, id }) => {
+  const dispatch = useDispatch();
 
-export default Books;
+  const handleRemove = () => {
+    dispatch(removeBook(id));
+  };
+
+  return (
+
+    <div className="book">
+
+      <h2 className="title">{title}</h2>
+      <h6 className="author">{author}</h6>
+
+      <button className="btn-remove" type="button" onClick={handleRemove}>
+        RemoveBook
+      </button>
+
+    </div>
+
+  );
+};
+
+Book.propTypes = {
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+};
+
+export default Book;
