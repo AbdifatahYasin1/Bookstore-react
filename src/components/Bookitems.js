@@ -11,7 +11,7 @@ export default function Bookitems() {
       <ul className="bookItems">
 
         {books.map((book) => (
-          <li key={book.title + book.author}>
+          <li key={book.id}>
             <Books title={book.title} author={book.author} id={book.id} />
           </li>
         ))}

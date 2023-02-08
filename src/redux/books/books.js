@@ -19,10 +19,10 @@ const initialState = {
       title: 'The Lord of the Rings', author: 'J.R.R. Tolkien', id: 4,
     },
     {
-      title: 'The Lord of the Rings', author: 'J.R.R. Tolkien', id: 5,
+      title: 'The Hobbit', author: 'J.R.R. Tolkien', id: 5,
     },
     {
-      title: 'The Lord of the Rings', author: 'J.R.R. Tolkien', id: 6,
+      title: 'rich dad poor dad', author: 'Robert Kiyosaki', id: 6,
     },
 
   ],
