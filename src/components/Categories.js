@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { checkStatus } from '../redux/categories/categories';
 
 const CategoriesFunc = () => {
-  const statusState = useSelector((state) => state.categories.status);
+  const state = useSelector((state) => state.categories.status);
   const dispatch = useDispatch();
 
   const handleCheckStatus = () => {
@@ -17,7 +17,7 @@ const CategoriesFunc = () => {
       <button type="button" onClick={handleCheckStatus}>
         Check Status
       </button>
-      <p>{statusState}</p>
+      <p>{state}</p>
     </div>
 
   );

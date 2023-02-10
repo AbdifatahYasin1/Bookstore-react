@@ -1,55 +1,59 @@
-// Action Types
+import { createAsyncThunk } from '@reduxjs/toolkit';
+
 const Add = 'redux/books/books/Add';
 const Remove = 'bookstore/books/REMOVE';
+const DISPLAY_BOOKS = 'bookstore/books/displayBooks';
+const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/kIO6x6srXXBFVkkiZ0nH/books';
+// actions
 
-// Initial State
+export const displayBooks = createAsyncThunk(
+  DISPLAY_BOOKS,
+  async (post, { dispatch }) => {
+    const response = await fetch(URL);
+    const data = await response.json();
+    const books = Object.keys(data).map((id) => ({
+      ...data[id][0],
+      item_id: id,
+    }));
+    dispatch({
+      type: DISPLAY_BOOKS,
+      payload: books,
+    });
+  },
+);
 
-const initialState = {
-  books: [
-    {
-      title: 'The Hunger Games', author: 'Suzanne Collins', id: 1,
-    },
-    {
-      title: 'Dune', author: 'Frank Herbert', id: 2,
-    },
-    {
-      title: 'Capital in the Twenty-First Century', author: 'Suzanne Collins', id: 3,
-    },
-    {
-      title: 'The Lord of the Rings', author: 'J.R.R. Tolkien', id: 4,
-    },
-    {
-      title: 'The Hobbit', author: 'J.R.R. Tolkien', id: 5,
-    },
-    {
-      title: 'rich dad poor dad', author: 'Robert Kiyosaki', id: 6,
-    },
+export const addBook = createAsyncThunk(
+  Add, async (book, { dispatch }) => {
+    await fetch(URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(book),
+    });
+    dispatch({ type: Add, payload: book });
+  },
+);
 
-  ],
-};
+export const removeBook = createAsyncThunk(
+  Remove,
+  async (id, { dispatch }) => {
+    await fetch(`${URL}/${id}`, { method: 'DELETE' });
+    dispatch({ type: Remove, payload: id });
+  },
+);
 
-export const addBook = (book) => ({
-  type: Add,
-  book,
-});
+const initialBookState = [];
 
-export const removeBook = (bookId) => ({
-  type: Remove,
-  bookId,
-});
-export default function booksReducer(state = initialState, action) {
+const bookReducer = (state = initialBookState, action) => {
   switch (action.type) {
+    case DISPLAY_BOOKS:
+      return action.payload;
     case Add:
-      return {
-        ...state,
-        books: [...state.books, action.book],
-      };
+      return [...state, action.payload];
     case Remove:
-      return {
-        ...state,
-        books: state.books.filter((book) => book.id !== action.bookId),
-      };
+      return state.filter((book) => book.item_id !== action.payload);
     default:
       return state;
   }
-}
+};
+
+export default bookReducer;

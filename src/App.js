@@ -3,9 +3,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 
 import Categories from './components/Categories';
+import Conatiner from './components/Conatiner';
 
 import './App.css';
-import Bookitems from './components/Bookitems';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Header />
 
         <Routes>
-          <Route exact path="/" element={<Bookitems />} />
+          <Route exact path="/" element={<Conatiner />} />
           <Route exact path="/categories/*" element={<Categories />} />
 
         </Routes>
