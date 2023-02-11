@@ -46,6 +46,7 @@ body {
   opacity: 0.5;
   text-transform: uppercase;
   font-size: 1.2rem;
+  padding: 2px;
 }
 
 .navList {
@@ -109,7 +110,7 @@ body {
 .info {
   display: flex;
   flex-direction: column;
-  grid-gap: 0.938rem;
+  gap: 2px;
 }
 
 .title {
@@ -180,6 +181,9 @@ body {
 .progress-container {
   display: flex;
   align-items: center;
+
+  /* background: red; */
+  margin-left: 20%;
 }
 
 .progress {
