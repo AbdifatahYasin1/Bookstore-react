@@ -11,7 +11,7 @@ const Header = () => {
       <h1 className="header">Bookstore CMS</h1>
       <ul className="navList">
         {links.map((link) => (
-          <li key={link.id} className="nav-link">
+          <li key={link.id} className={link.text === 'Books' ? 'nav-link Book' : 'nav-link'}>
             <NavLink to={link.path}>{link.text}</NavLink>
           </li>
         ))}
