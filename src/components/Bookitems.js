@@ -10,7 +10,7 @@ const Bookitems = () => {
     dispatch(displayBooks());
   }, []);
   return (
-    <div className="book-items">
+    <ul className="books">
       {books.map((book) => (
         <Books
           key={book.item_id}
@@ -20,7 +20,7 @@ const Bookitems = () => {
           category={book.category}
         />
       ))}
-    </div>
+    </ul>
   );
 };
 

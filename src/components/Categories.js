@@ -17,7 +17,7 @@ const CategoriesFunc = () => {
       <button type="button" onClick={handleCheckStatus}>
         Check Status
       </button>
-      <p>{state}</p>
+      <p className="under">{state}</p>
     </div>
 
   );

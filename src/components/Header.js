@@ -1,13 +1,27 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { FaUserAlt } from 'react-icons/fa';
 
-const Header = () => (
-  <div className="header">
-    <h1>Book store CMS</h1>
-
-    <li className="li"><Link to="/" style={{ color: 'white' }}>Books</Link></li>
-    <li className="li"><Link to="/categories" style={{ color: 'white' }}>Categories</Link></li>
-  </div>
-);
-
+const Header = () => {
+  const links = [
+    { id: 1, path: '/', text: 'Books' },
+    { id: 2, path: '/categories', text: 'Categories' },
+  ];
+  return (
+    <nav className="navigation">
+      <h1 className="header">Bookstore CMS</h1>
+      <ul className="navList">
+        {links.map((link) => (
+          <li key={link.id} className="nav-link">
+            <NavLink to={link.path}>{link.text}</NavLink>
+          </li>
+        ))}
+      </ul>
+      <button className="icon-button" type="button">
+        <span className="material-icons primary-color">
+          <FaUserAlt />
+        </span>
+      </button>
+    </nav>
+  );
+};
 export default Header;

@@ -28,21 +28,21 @@ const Form = () => {
       <form className="add-form" onSubmit={submitHandler}>
         <input
           className="input title-input"
-          placeholder="Book title"
+          placeholder="Book Title"
           required
           onChange={(e) => setTitle(e.target.value)}
           value={title}
         />
         <input
           className="input title-input"
-          placeholder="Book author"
+          placeholder="Author"
           required
           onChange={(e) => setAuthor(e.target.value)}
           value={author}
         />
         <input
           className="input title-input"
-          placeholder="Book generated"
+          placeholder="Generate Book Category"
           required
           onChange={(e) => setGenre(e.target.value)}
           value={category}
@@ -51,6 +51,7 @@ const Form = () => {
           ADD BOOK
         </button>
       </form>
+
     </section>
   );
 };

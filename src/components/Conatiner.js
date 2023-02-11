@@ -5,7 +5,9 @@ import Form from './Form';
 const container = () => (
   <div className="container">
     <div>
+
       <Bookitems />
+      <div className="horizontal" />
       <Form />
     </div>
   </div>
